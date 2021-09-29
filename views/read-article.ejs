@@ -1,0 +1,12 @@
+<%- include('include/head.ejs') %>
+
+   <main class="w-screen h-screen">
+      <button type="button" onclick="location.href='/admin' ">Registration</button>
+
+      <p class="m-4">
+         <%- article.article %>
+      </p>
+      <img style="width: 70%; height: 50%" class="object-contain m-8" src="/<%= article.image %>" alt="" />
+   </main>
+
+   <%- include('include/foot.ejs') %>

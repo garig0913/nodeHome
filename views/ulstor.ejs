@@ -1,0 +1,171 @@
+<%- include('include/head.ejs') %>
+
+   <% let current=new Date() %>
+      <% let date=current.toLocaleString(); %>
+
+         <% const main=article.find(x=> x.category === 'main') %>
+            <% const sidebar=article.find(x=> x.category === 'sidebar') %>
+               <% const top10-1=article.find(x=> x.category === 'top10-1') %>
+                  <% const top10-2=article.find(x=> x.category === 'top10-2') %>
+                     <% const top10-3=article.find(x=> x.category === 'top10-3') %>
+
+
+
+
+                        <link rel="stylesheet" href="ulstor.css">
+                        <!-- HEADER HESEG -->
+                        <header class="
+            topHeader
+            w-screen
+            h-7
+            bg-red-800
+            flex
+            justify-evenly
+            border-b border-black
+         ">
+                           <ul class="text-white flex text-xs mr-52 h-full">
+                              <li id="topUl" class="px-3 pt-1.5 border-r border-black">
+                                 Бидний тухай
+                              </li>
+                              <li id="topUl" class="px-3 pt-1.5 border-r border-black">
+                                 Сурталчилгаа байрлуулах
+                              </li>
+                              <li id="topUl" class="px-3 pt-1.5">Холбоо барих
+                              </li>
+                           </ul>
+
+                           <ul class="text-white flex text-xs">
+                              <li id="topUl" class="px-3 pt-1 border-r border-black">
+                                 Facebook<i class="mx-1 text-base fab fa-facebook"></i>
+                              </li>
+                              <li id="topUl" class="px-3 pt-1">
+                                 Twitter<i class="mx-1 text-base fab fa-twitter"></i>
+                              </li>
+                           </ul>
+                        </header>
+
+                        <header class="mainHeader w-screen h-28 flex justify-evenly items-center">
+                           <button type="button" onclick="location.href='/ulstor'">
+                              <img class="mr-64" src="https://www.ulstor.mn/style/images/UlsTor-Logo.png" alt="" />
+                           </button>
+                           <input class="w-48 h-7" type="search" name="search" id="search" />
+                        </header>
+
+                        <header class="bottomHeader w-screen h-9 bg-black">
+                           <ul id="lastHeader" class="text-white font-bold text-sm flex justify-center h-full mr-10">
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">ЭХЛЭЛ
+                              </li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">
+                                 УЛС ТӨРИЙН НАМ
+                              </li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">
+                                 УЛСЫН ИХ ХУРАЛ
+                              </li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">
+                                 ЗАСГИЙН ГАЗАР
+                              </li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">
+                                 ЕРӨНХИЙЛӨГЧ</li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">ЗАСАГ
+                                 ДАРГА</li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">
+                                 СОНГУУЛЬ</li>
+                              <li id="botUl" class="border-r border-white pt-1.5 px-5">
+                                 УЛСТӨРЧ</li>
+                              <li id="botUl" class="pt-1.5 px-6">БУСАД</li>
+                           </ul>
+                        </header>
+                        <!-- HEADER HESEG -->
+
+                        <main class="mainNewsCont w-screen justify-center flex mt-4 border-b border-black">
+                           <div class="sidebar w-60 bg-gray-300 mx-4">
+                              <div class="
+                  shineMedeelel
+                  w-full
+                  h-10
+                  bg-indigo-600
+                  flex
+                  items-center
+                  text-base text-white
+               ">
+                                 <i class="fas fa-newspaper ml-4 mr-1"></i>
+                                 <h1>ШИНЭ МЭДЭЭЛЭЛ</h1>
+                              </div>
+                           </div>
+                           <!-- MAIN MEDEE -->
+                           <div class="mainNewsCont block">
+                              <div class="mainNews mr-6 flex">
+
+                                 <img class="object-cover" src="<%= main.image %>" alt="" />
+
+                                 <div id="text1" class="w-6/12 mx-6 my-7 text-white">
+                                    <a href="/read-article/<%= main._id %>">
+                                       <h1 class="text-2xl font-bold mr-4 hover:text-blue-400">
+                                          <%= main.title %>
+                                       </h1>
+                                    </a>
+                                    <p class="text-sm my-4 mr-4">
+                                    <p class="m-4">
+                                       <%- main.article %>
+                                    </p>
+                                    </p>
+                                 </div>
+                              </div>
+                           </div>
+
+                           <!-- <div class="subNewsCont">
+            <div class="subSection bg-blue-400 w-48 h-40"></div>
+         </div> -->
+                           <!-- MAIN MEDEE -->
+                        </main>
+
+                        <main class="bgRepeatCont flex justify-center">
+                           <div class="bgRepeat flex justify-between">
+                              <div class="top10">
+                                 <h1 class="text-3xl my-1">ТОП 10</h1>
+                                 <p class="font-bold text-xs mb-1">
+                                    7 ХОНОГИЙН ДОТОР ХАМГИЙН ИХ УНШИГДАЖ БУЙ
+                                    МЭДЭЭЛЭЛ
+                                 </p>
+                                 <div class="top10cont grid grid-cols-3">
+
+                                    <div class="top10news w-36 h-48 mr-1">
+                                       <a href="/read-article/<%= top10-1._id %>">
+                                          <img class="object-cover h-24" src="<%= top10-1.image %>" alt="" />
+                                       </a>
+                                       <p class="text-sm mt-1">
+                                          <%= top10-1.title %>
+                                       </p>
+                                       <p class="text-xs font-medium text-blue-800">
+                                          <%= date %>
+                                       </p>
+                                    </div>
+                                    <div class="top10news w-36 h-48 mx-1">
+                                       <a href="/read-article/<%= top10-2._id %>">
+                                          <img class="object-cover h-24" src="<%= top10-2.image %>" alt="" />
+                                       </a>
+                                       <p class="text-sm mt-1">
+                                          <%= top10-2.title %>
+                                       </p>
+                                       <p class="text-xs font-medium text-blue-800">
+                                          <%= date %>
+                                       </p>
+                                    </div>
+                                    <div class="top10news w-36 h-48 mx-1">
+                                       <a href="/read-article/<%= top10-3._id %>">
+                                          <img class="object-cover h-24" src="<%= top10-3.image %>" alt="" />
+                                       </a>
+                                       <p class="text-sm mt-1">
+                                          <%= top10-3.title %>
+                                       </p>
+                                       <p class="text-xs font-medium text-blue-800">
+                                          <%= date %>
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+
+                              <div class="sideBar2 w-60"></div>
+                           </div>
+                        </main>
+                        <%- include('include/foot.ejs') %>
